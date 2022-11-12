@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Letter - Simple Sign Up Form</title>
+	<!-- 
+
+Letter Template 
+
+https://templatemo.com/tm-510-letter
+
+
+
+Template Re-distribution is NOT allowed.
+
+-->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+	<!-- Google web font "Open Sans" -->
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="css/demo.css" />
+	<link rel="stylesheet" href="css/templatemo-style.css">
+
+	<script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
+
+</head>
+
+<body>
+
+	<div id="particles-js"></div>
+
+	<ul class="cb-slideshow">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+
+	<div class="container-fluid">
+		<div class="row cb-slideshow-text-container ">
+			<div class= "tm-content col-xl-9 col-sm-8 col-xs-8 ml-auto section">
+			<header class="mb-5"><h1>This for you Khushboo</h1></header>
+			<P class="">Hey yad hun na main,
+				Please khushboo tum agr message read kr rhi ho toh please do not cry,
+				Keep smile in your face 🙂
+				Main tumhe hamesa yaad rkhunga hamara sath yahi to tha .
+				Ab hamare raste alg ho chuke hai but main hamesa yaad rakhunga tum ko khushboo ♥️
+				Agr main tumhare liye kuchh tha toh tum mera name apne bete koh Dena or main apni beti koh tumhara
+				name dunga.
+				Bus mujhe hamesa yaad karke apne face me smile lana
+				Q ki hum jitna bhi time sath the ek dusre ke khas the
+				Or ab dur hai.
+				Please always keep smile in your face,
+				I am always pray for you to keep smile
+				Main hamari sari yaado koh apne paas rkha hua hai
+				Always remember me ki ek main bhi tha tumhara dost ♥️♥️♥️♥️♥️♥️♥️♥️♥️♥️
+				😭😭😭😭😭😭😭😭😭😭
+				Please read this 🙏🙏🙏🙏🙏🙏
+				Hey do not cry, tumhare pass koi toh hai joh tumse pyar krta hai but I am alone,
+				Tum meri na ho ski yahi gum hai bus
+				Always keep smile in your face
+				Jab meri yaad aye toh Chand koh dekh lena
+				Main ne kuchh song ki list di hai joh mere feelings koh batati hai</P>
+			<p>Aj yaad hai woh din jb hum pahli baar miley the lga tha jaise tum meri ho, yaad hai mujhe jb tumne
+				pahli bar mask hta kr chain ki sans li thi</p>
+			<ul>
+				<li>Faasle (Aditya Rikhari)</li>
+				<li>Main Royaan (Tanveer Evan)</li>
+				<li>Tera woh pyar (Nawazishein Karam)</li>
+				<li>Tum 2.0 (Anurag Vashisht, Riya Tickoo)</li>
+				<li>Kya Karein (Aditya Rikhari)</li>
+				<li>Baatein Karo (Vayu)</li>
+				<li>Jaane de (Atif Aslam)</li>
+				<li>Choo lo (Urban Crunch Music, Saif Ali Khan)</li>
+				<li>Ek Din Aap Yun Hum Se Chin Jaenge (Ahmeb Nadeem)</li>
+				<li>Tere Janey ke baad (Dream Note)</li>
+			</ul>
+			<form action="#" method="get" class="subscribe-form">
+				   <div class="row form-section">
+					<div class="col-md-7 col-sm-7 col-xs-7">
+						<textarea rows="4" cols="50" name="comment" class="form-control" form="usrform" id="my-message"
+						placeholder="Type here for me Khushboo" required></textarea>
+					  </div>
+					<div class="col-md-5 col-sm-5 col-xs-5">
+						<button id="send-message" class="tm-btn-subscribe">Send me</button>
+					</div>
+				
+				</div>
+			</form>
+	</div>	
+	<script>
+		let submit = document.getElementById("send-message");
+		let myMessage = document.getElementById("my-message");
+		submit.addEventListener('click',function() {
+			let url = "http://139.59.121.200:4000/api/v1/user/send-email";
+			let option = {
+				method: 'POST',
+				headers: {
+					'content-type': 'appplication/json'
+				},
+				body: JSON.stringify(myMessage.value)
+			}
+			fetch(url,option).then(result => {
+				alert(result.data.message)
+			}).catch(error => {
+				alert(error)
+			})
+		})
+	</script>
+</body>
+
+
+<script type="text/javascript" src="js/particles.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+
+</html>
