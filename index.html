@@ -100,12 +100,12 @@ Template Re-distribution is NOT allowed.
 	<script>
 		let submit = document.getElementById("send-message");
 		let myMessage = document.getElementById("my-message");
-		submit.addEventListener('click',function() {
+		submit.addEventListener('click',function(e) {
+			e.preventDefault();
 			axios.post("http://139.59.121.200:4000/api/v1/user/send-email",{message:  myMessage.value}).then(res => {
 				if(res.data.success) {
 				alert("successfully send email!")
 				}
-				alert("res",res)
 				}).catch(error => {
 				      conaole.log(error)
 				})
