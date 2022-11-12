@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<title>Letter - Simple Sign Up Form</title>
 	<!-- 
 
@@ -101,19 +101,14 @@ Template Re-distribution is NOT allowed.
 		let submit = document.getElementById("send-message");
 		let myMessage = document.getElementById("my-message");
 		submit.addEventListener('click',function() {
-			let url = "http://139.59.121.200:4000/api/v1/user/send-email";
-			let option = {
-				method: 'POST',
-				headers: {
-					'content-type': 'appplication/json'
-				},
-				body: JSON.stringify(myMessage.value)
-			}
-			fetch(url,option).then(result => {
-				alert(result.data.message)
-			}).catch(error => {
-				alert(error)
-			})
+			axios.post("http://139.59.121.200:4000/api/v1/user/send-email",{message:  message.value}).then(res => {
+				if(res.data.success) {
+				alert("successfully send email!")
+				}
+      console.log("res",res)
+    }).catch(error => {
+      conaole.log(error)
+    })
 		})
 	</script>
 </body>
